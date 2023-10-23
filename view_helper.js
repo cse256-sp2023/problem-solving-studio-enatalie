@@ -146,7 +146,7 @@ function define_single_select_list(id_prefix, on_selection_change = function(sel
 // - id_prefix is a (required) unique string which will be prepended to all the generated elements.
 // - add_info_col is a boolean for whether you want a third column with "info" buttons (which do nothing by default)
 // - returns the jquery object for the effective permissions panel, ready to be attached/appended anywhere you want it.
-function define_new_effective_permissions(id_prefix, add_info_col = false, which_permissions = null){
+function define_new_effective_permissions(id_prefix, add_info_col = true, which_permissions = null){
     // Set up the table:
     let effective_container = $(`<div id="${id_prefix}" class="ui-widget-content" style="overflow-y:scroll"></div>`)
     
@@ -476,7 +476,7 @@ function open_user_select_dialog(to_populate_id) {
 // - id_prefix is the required id prefix that will be attached to all element ids.
 // - select_button_text is the text that will go on the button
 // - on_user_change is an additional function you can pass in, which will be called each time a user is selected.
-function define_new_user_select_field(id_prefix, select_button_text, on_user_change = function(selected_user){}){
+function define_new_user_select_field(id_prefix, select_button_text, on_user_change = function(selected_user){ $('#permtable').attr('username', selected_user) }){
     // Make the element:
     let sel_section = $(`<div id="${id_prefix}_line" class="section">
             <span id="${id_prefix}_field" class="ui-widget-content" style="width: 80%;display: inline-block;">&nbsp</span>

@@ -100,7 +100,7 @@ returns whether the given user is allowed to do something, where the thing being
 If explain_why is false, returns a boolean.
 if explain_why is true, returns an object which contains information about why this decision was made. (see make_allow_return_value for the object structure)
 */
-function allow_user_action(file, user, permission_to_check, explain_why = false){
+function allow_user_action(file, user, permission_to_check, explain_why = true){
   // first, check for "special" built-in permissions:
   // If user is owner or admin, they can always change permissons, read permissions, and take ownership of the file.
   if ( [permissions.CHANGE_PERMS, permissions.TAKE_OWNERSHIP, permissions.READ_PERMS].includes(permission_to_check)  && 
